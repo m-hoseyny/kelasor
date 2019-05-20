@@ -7,7 +7,7 @@ from TelegramAdmin.models import User
 class File(models.Model):
     id = models.CharField(max_length=6, primary_key=True)
     file_id = models.TextField(unique=True)
-    mime_type = models.CharField(max_length=30)
+    mime_type = models.CharField(max_length=100)
     file_size = models.IntegerField()
     file_name = models.CharField(max_length=1000)
     file_description = models.CharField(max_length=1025, null=True)

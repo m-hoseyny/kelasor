@@ -1,5 +1,6 @@
 from .models import File
 import string, random
+from django.contrib.postgres.search import SearchVector
 
 
 class FileController:
@@ -32,3 +33,11 @@ class FileController:
         file.download_count += 1
         file.save()
         return file
+
+    @staticmethod
+    def search_file(query):
+        return File.objects.annotate(
+            search=SearchVector(
+                'file_name',
+                'file_description'
+            )).filter(search=query).all()

@@ -91,7 +91,7 @@ def search_file(bot, update, user):
     try:
         query = update.message.text
         logger.debug("User {} search file {}".format(user.chat_id, query))
-        files = File.objects.filter(file_name__search=query).all()
+        files = file_controller.search_file(query)
         response = 'success'
         search_res = []
         if not files:
