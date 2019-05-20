@@ -1,0 +1,8 @@
+__pychache__/
+/__pychache__/
+/.idea
+.idea/
+*.pyc
+.env
+installation.sh
+/configs
