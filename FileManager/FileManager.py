@@ -8,7 +8,7 @@ class FileController:
 
     @staticmethod
     def make_id(n=6):
-        return ''.join(random.choices(string.ascii_uppercase + string.digits, k=n))
+        return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(n))
 
     def save(self, message, user):
         file = File.objects.filter(file_id=message.document.file_id).first()
