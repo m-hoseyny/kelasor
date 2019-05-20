@@ -24,7 +24,7 @@ class FileController:
             file_size=message.document.file_size,
             mime_type=message.document.mime_type,
             sender=user,
-        ).save()
+        ).save(force_insert=True)
         return id_
 
     @staticmethod
