@@ -101,12 +101,12 @@ def search_file(bot, update, user):
             for file in files:
                 size = format_bytes(file.file_size)
                 if len(file.file_name) > 10:
-                    msg = '{}\n💾{} - 📥/bp_{}'.format(file.file_name,
+                    msg = '{}\n💾{} - 📥/kelasor_{}'.format(file.file_name,
                                                        size,
                                                             file.id)
                 else:
                     desc = file.file_description.replace('\n', ' ')[:20] + '...'
-                    msg = '{} - {}\n💾{} - 📥/bp_{}'.format(file.file_name,
+                    msg = '{} - {}\n💾{} - 📥/kelasor_{}'.format(file.file_name,
                                                            desc,
                                                             size,
                                                            file.id)
