@@ -24,6 +24,8 @@ class FileController:
 
     @staticmethod
     def clean_text(text):
+        if text is None:
+            return ''
         text = text.translate(text)
         text = text.translate(arabic_number)
         text = text.replace(b'\xe2\x80\x8c'.decode('utf-8'), ' ') # remove ZWSP :)
