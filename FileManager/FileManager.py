@@ -65,5 +65,6 @@ class FileController:
         return File.objects.annotate(
             search=SearchVector(
                 'file_name',
-                'file_description'
+                'file_description',
+                'search_field'
             )).filter(search=query).all()
