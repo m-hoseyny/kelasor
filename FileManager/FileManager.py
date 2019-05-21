@@ -22,11 +22,10 @@ class FileController:
     def make_id(n=6):
         return ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(n))
 
-    @staticmethod
-    def clean_text(text):
+    def clean_text(self, text):
         if text is None:
             return ''
-        text = text.translate(text)
+        text = text.translate(self.map_punc_space)
         text = text.translate(arabic_number)
         text = text.replace(b'\xe2\x80\x8c'.decode('utf-8'), ' ') # remove ZWSP :)
         return text
