@@ -11,6 +11,7 @@ class File(models.Model):
     file_size = models.IntegerField()
     file_name = models.CharField(max_length=1000)
     file_description = models.CharField(max_length=1025, null=True)
+    search_field = models.TextField(default='')
     sender = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     download_count = models.IntegerField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
