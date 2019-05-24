@@ -78,7 +78,7 @@ def get_file_handler(bot, update):
         file = file_controller.get(update.message.text.replace('/kelasor_', ''))
         desc = file.file_description + '\n@kelasorbot'
         bot.send_document(update.message.chat_id, file.file_id, caption=desc)
-        DownloadFileUser(file=file, user=user).save()
+        DownloadFileUser(file=file, user=user.chat_id).save()
     except Exception as e:
         logger.error("get_file : {}".format(e))
 
