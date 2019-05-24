@@ -73,10 +73,12 @@ def upload_file_handler(bot, update):
 
 def get_file_handler(bot, update):
     try:
+        user = user_controller.update_create_user(update.message.chat)
         logger.debug("Getting file {}".format(update.message.text))
         file = file_controller.get(update.message.text.replace('/kelasor_', ''))
         desc = file.file_description + '\n@kelasorbot'
         bot.send_document(update.message.chat_id, file.file_id, caption=desc)
+        DownloadFileUser(file=file, user=user).save()
     except Exception as e:
         logger.error("get_file : {}".format(e))
 

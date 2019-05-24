@@ -19,3 +19,12 @@ class File(models.Model):
     class Meta:
         db_table = 'files'
         ordering = ['-download_count', '-created_at']
+
+
+class DownloadFileUser(models.Model):
+    file = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)
+    user = models.IntegerField(null=True)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        db_table = 'users_downloads_files'
